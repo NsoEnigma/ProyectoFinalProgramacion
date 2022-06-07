@@ -22,14 +22,14 @@ public class Ventana extends JFrame{
 	public Ventana() {
 		this.setSize(800,500);
 		this.setLocationRelativeTo(null); //Te pone la ventana en el centro de la pantalla
-		this.setIconImage(new ImageIcon("./iconos/cenec.png").getImage());
-		this.setTitle("Proyecto de pruebas de Interfaces 1DAM");
+		this.setIconImage(new ImageIcon("./imagenes/Akatsuki-Logo.png").getImage());
+		this.setTitle("AnimeFlvHacendado");
 		//this.setAlwaysOnTop(true);
 		//this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		//this.setUndecorated(true);
-		this.pantallaActual=new PantallaLogin(this);
+		this.pantallaActual=new PantallaInicio(this);
 		this.setContentPane(pantallaActual);
 		
 		//this.setResizable(false);
@@ -45,17 +45,15 @@ public class Ventana extends JFrame{
 			case "login":
 				this.pantallaActual=new PantallaLogin(this);
 			break;
+			case "registro":
+				this.pantallaActual=new PantallaRegistro(this);
+			break;	
+			case "inicio":
+				this.pantallaActual=new PantallaInicio(this);
+			break;
 		}
 		this.pantallaActual.setVisible(true);
 		this.setContentPane(pantallaActual);
-	}
-	
-
-	public void paintComponent(Graphics g) {
-		
-		Dimension tamanio = getSize();
-		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("./imagenes/fondoPantallaRedimensionado.jpg"));
-		g.drawImage(imagenFondo.getImage(),0,0,tamanio.width,tamanio.height,null);
 	}
 
 }
