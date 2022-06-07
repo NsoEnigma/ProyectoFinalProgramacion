@@ -32,7 +32,7 @@ public class PantallaInicio extends JPanel{
 		setLayout(null);
 		
 		JLabel logo = new JLabel("");
-		logo.setIcon(new ImageIcon("C:\\Users\\alexc\\Documents\\GitHub\\ProyectoFinalProgramacion\\imagenes\\Akatsuki-Logo.png"));
+		logo.setIcon(new ImageIcon("./imagenes/Akatsuki-Logo.png"));
 		logo.setBounds(250, 58, 250, 141);
 		add(logo);
 		
@@ -73,8 +73,8 @@ public class PantallaInicio extends JPanel{
 		});
 		
 		JLabel fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon("C:\\Users\\alexc\\Documents\\GitHub\\ProyectoFinalProgramacion\\imagenes\\fondoPantallasRedimensionado.jpg"));
-		fondo.setBounds(0, 0, 800, 500);
+		fondo.setIcon(new ImageIcon("./imagenes/fondoPantallasRedimensionado.jpg"));
+		fondo.setBounds(0, 0, 800, 501);
 		add(fondo);
 		
 		
