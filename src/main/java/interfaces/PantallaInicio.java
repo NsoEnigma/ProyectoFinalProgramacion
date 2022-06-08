@@ -33,8 +33,13 @@ public class PantallaInicio extends JPanel{
 		
 		JLabel logo = new JLabel("");
 		logo.setIcon(new ImageIcon("./imagenes/Akatsuki-Logo.png"));
-		logo.setBounds(250, 58, 250, 141);
+		logo.setBounds(250, 43, 250, 141);
 		add(logo);
+		
+		JLabel hola = new JLabel("");
+		hola.setIcon(new ImageIcon("./imagenes/hola.png"));
+		hola.setBounds(659, 0, 141, 92);
+		add(hola);
 		
 		JLabel titulo = new JLabel("AnimeFlvHacendado");
 		titulo.setForeground(Color.RED);
@@ -76,6 +81,8 @@ public class PantallaInicio extends JPanel{
 		fondo.setIcon(new ImageIcon("./imagenes/fondoPantallasRedimensionado.jpg"));
 		fondo.setBounds(0, 0, 800, 501);
 		add(fondo);
+		
+
 		
 		
 		

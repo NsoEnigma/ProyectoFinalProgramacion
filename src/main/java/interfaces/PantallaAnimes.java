@@ -14,8 +14,14 @@ import javax.swing.JScrollPane;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
+
+import clases.Anime;
+import clases.Usuario;
+import elementosVisuales.ElementoListaAnimes;
+
 import javax.swing.JButton;
 
 public class PantallaAnimes extends JPanel{
@@ -24,10 +30,10 @@ public class PantallaAnimes extends JPanel{
 	public PantallaAnimes(Ventana v) {
 		setBackground(Color.DARK_GRAY);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{303, 193, 0, 0};
+		gridBagLayout.columnWidths = new int[]{210, 193, 0, 0};
 		gridBagLayout.rowHeights = new int[]{42, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblNewLabel = new JLabel("AnimeFlvHacendado");
@@ -40,80 +46,25 @@ public class PantallaAnimes extends JPanel{
 		gbc_lblNewLabel.gridy = 0;
 		add(lblNewLabel, gbc_lblNewLabel);
 		
-		JLabel portadaNaruto = new JLabel("");
-		portadaNaruto.setVerticalAlignment(SwingConstants.BOTTOM);
-		portadaNaruto.setIcon(new ImageIcon("./imagenes/naruto.jpg"));
-		portadaNaruto.setHorizontalAlignment(SwingConstants.CENTER);
-		GridBagConstraints gbc_portadaNaruto = new GridBagConstraints();
-		gbc_portadaNaruto.insets = new Insets(0, 0, 5, 5);
-		gbc_portadaNaruto.gridx = 0;
-		gbc_portadaNaruto.gridy = 3;
-		add(portadaNaruto, gbc_portadaNaruto);
+		JScrollPane scrollPane = new JScrollPane();
+		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+		gbc_scrollPane.gridheight = 6;
+		gbc_scrollPane.gridwidth = 3;
+		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollPane.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane.gridx = 0;
+		gbc_scrollPane.gridy = 1;
+		add(scrollPane, gbc_scrollPane);
 		
-		JLabel portadaSpy = new JLabel("");
-		portadaSpy.setIcon(new ImageIcon("./imagenes/2-scaled (1).jpg"));
-		GridBagConstraints gbc_portadaSpy = new GridBagConstraints();
-		gbc_portadaSpy.insets = new Insets(0, 0, 5, 5);
-		gbc_portadaSpy.gridx = 1;
-		gbc_portadaSpy.gridy = 3;
-		add(portadaSpy, gbc_portadaSpy);
+		JPanel listaAnimes = new JPanel();
+		listaAnimes.setBackground(Color.DARK_GRAY);
+		scrollPane.setViewportView(listaAnimes);
+		listaAnimes.setLayout(new BoxLayout(listaAnimes, BoxLayout.Y_AXIS));
 		
-		JLabel portadaTokyoGhoul = new JLabel("");
-		portadaTokyoGhoul.setIcon(new ImageIcon("./imagenes/tkg.jpg"));
-		GridBagConstraints gbc_portadaTokyoGhoul = new GridBagConstraints();
-		gbc_portadaTokyoGhoul.insets = new Insets(0, 0, 5, 0);
-		gbc_portadaTokyoGhoul.gridx = 2;
-		gbc_portadaTokyoGhoul.gridy = 3;
-		add(portadaTokyoGhoul, gbc_portadaTokyoGhoul);
-		
-		JLabel tituloNaruto = new JLabel("Naruto");
-		tituloNaruto.setForeground(Color.RED);
-		tituloNaruto.setFont(new Font("Tahoma", Font.BOLD, 11));
-		GridBagConstraints gbc_tituloNaruto = new GridBagConstraints();
-		gbc_tituloNaruto.insets = new Insets(0, 0, 5, 5);
-		gbc_tituloNaruto.gridx = 0;
-		gbc_tituloNaruto.gridy = 4;
-		add(tituloNaruto, gbc_tituloNaruto);
-		
-		JLabel tituloSpy = new JLabel("Spy x Family");
-		tituloSpy.setForeground(Color.RED);
-		tituloSpy.setFont(new Font("Tahoma", Font.BOLD, 11));
-		GridBagConstraints gbc_tituloSpy = new GridBagConstraints();
-		gbc_tituloSpy.insets = new Insets(0, 0, 5, 5);
-		gbc_tituloSpy.gridx = 1;
-		gbc_tituloSpy.gridy = 4;
-		add(tituloSpy, gbc_tituloSpy);
-		
-		JLabel tokyo = new JLabel("Tokyo Ghoul");
-		tokyo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		tokyo.setForeground(Color.RED);
-		GridBagConstraints gbc_tokyo = new GridBagConstraints();
-		gbc_tokyo.anchor = GridBagConstraints.NORTH;
-		gbc_tokyo.insets = new Insets(0, 0, 5, 0);
-		gbc_tokyo.gridx = 2;
-		gbc_tokyo.gridy = 4;
-		add(tokyo, gbc_tokyo);
-		
-		JButton boton1 = new JButton("Ver Anime");
-		GridBagConstraints gbc_boton1 = new GridBagConstraints();
-		gbc_boton1.insets = new Insets(0, 0, 5, 5);
-		gbc_boton1.gridx = 0;
-		gbc_boton1.gridy = 5;
-		add(boton1, gbc_boton1);
-		
-		JButton boton2 = new JButton("Ver Anime");
-		GridBagConstraints gbc_boton2 = new GridBagConstraints();
-		gbc_boton2.insets = new Insets(0, 0, 5, 5);
-		gbc_boton2.gridx = 1;
-		gbc_boton2.gridy = 5;
-		add(boton2, gbc_boton2);
-		
-		JButton boton3 = new JButton("Ver Anime");
-		GridBagConstraints gbc_boton3 = new GridBagConstraints();
-		gbc_boton3.insets = new Insets(0, 0, 5, 0);
-		gbc_boton3.gridx = 2;
-		gbc_boton3.gridy = 5;
-		add(boton3, gbc_boton3);
+		ArrayList<Anime> todos=Anime.getTodos();
+		for(int i=0;i<todos.size();i++) {
+			listaAnimes.add(new ElementoListaAnimes(ventana,todos.get(i)));
+		}
 	}
 
 }
