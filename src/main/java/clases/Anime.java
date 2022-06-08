@@ -15,9 +15,11 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+import superclases.EntidadConNombre;
+import superclases.EntidadPortada;
 import utils.UtilsBD;
 
-public class Anime {
+public class Anime extends EntidadPortada{
     
     private String nombre;
 	private String descripcion;
@@ -27,7 +29,7 @@ public class Anime {
 	
 	
 	public Anime(String nombre, String descripcion, byte numeroTemporadas) {
-		super();
+		super(nombre,descripcion);
 		PreparedStatement ps = null;
 		FileInputStream fis = null;
 		
@@ -36,7 +38,7 @@ public class Anime {
 		this.numeroTemporadas = numeroTemporadas;
 		
 	}
-	
+
 	public Anime() {
 		// TODO Auto-generated constructor stub
 	}
