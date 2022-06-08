@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public abstract class UtilsBD {
 
-	private static final String cadenaConexion = "jdbc:mysql://127.0.0.1:3306/AnimeFlvBBD";
+	private static final String cadenaConexion = "jdbc:mysql://127.0.0.1:3306/AnimeFlvBDD";
 	private static final String usuarioBD = "root";
 	private static final String contraseñaBD = "Alejandro300403";
 	private static Connection conexion;

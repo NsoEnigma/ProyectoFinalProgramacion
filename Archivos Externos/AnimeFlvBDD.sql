@@ -6,14 +6,15 @@ create table usuario(
     nombre varchar(200) primary key,
     email varchar(400),
     contrasena varchar(30),
+	anioNacimiento int(4),
     fechaNacimiento date
 );
 
 create table anime(
 	nombre varchar(200) primary key,
     portada blob,
-    descripcion varchar(200),
-    foreign key (temporada) references temporadas(numeroTemporada)
+    descripcion varchar(200)
+    
 );
 
 create table temporadas(
@@ -36,8 +37,8 @@ create table capitulo(
     descripcion varchar(200),
     portada blob,
     temporada varchar(200),
-    foreign key (anime) references anime(nombre),
-    foreign key (usuario) references usuario(nombre),
+	foreign key (anime2) references anime(nombre),
+    foreign key (usuario2) references usuario(nombre),
     primary key(numeroCapitulo,anime)
     
 );
@@ -49,8 +50,8 @@ create table ova(
     descripcion varchar(200),
     portada blob,
     temporada varchar(200),
-    foreign key (anime) references anime(nombre),
-    foreign key (usuario) references usuario(nombre),
+	foreign key (anime3) references anime(nombre),
+    foreign key (usuario3) references usuario(nombre),
     primary key(numeroOva,anime)
     
 );

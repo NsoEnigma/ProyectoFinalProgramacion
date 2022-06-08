@@ -51,9 +51,13 @@ public class Ventana extends JFrame{
 			case "inicio":
 				this.pantallaActual=new PantallaInicio(this);
 			break;
+			case "anime":
+				this.pantallaActual=new PantallaAnimes(this);
+			break;
 		}
 		this.pantallaActual.setVisible(true);
 		this.setContentPane(pantallaActual);
+	
 	}
 
 }

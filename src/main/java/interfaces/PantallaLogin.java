@@ -112,16 +112,22 @@ public class PantallaLogin extends JPanel{
 						"Bienvenid@, "+ventana.usuarioLogado.getNombre(),
 						"Login correcto",JOptionPane.PLAIN_MESSAGE);
 						
-						ventana.cambiarAPantalla("listaUsuarios");
+						ventana.cambiarAPantalla("anime");
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} catch (ContraseñaIncorrectaException e1) {
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						JOptionPane.showMessageDialog(ventana,
+								"Contraseña Incorrecta",
+								"Error",
+								JOptionPane.ERROR_MESSAGE);
 					} catch (UsuarioNoExisteException e1) {
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						JOptionPane.showMessageDialog(ventana,
+								"El usuario no existe",
+								"Error",
+								JOptionPane.ERROR_MESSAGE);
 					}
 				
 			}

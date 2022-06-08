@@ -31,8 +31,7 @@ public class Usuario implements Comparable{
 	private String contraseña;
 	private short añoNacimiento;
 	private LocalDate fechaNacimiento;
-	private LocalDateTime momentoRegistro;
-	private LocalTime horaAcostarse;
+
 
 	public Usuario(String nombre, String email, String contraseña, short añoNacimiento, LocalDate fN, LocalDateTime mR,
 			LocalTime hA) throws SQLException, ContraseñaVaciaException, EmailValidoException, AñoInvalidoException,
@@ -53,14 +52,13 @@ public class Usuario implements Comparable{
 		// Insertar
 
 		if (query.executeUpdate("insert into usuario values('" + nombre + "','" + email + "','" + contraseña + "',"
-				+ añoNacimiento + ",'" + fN + "','" + mR + "','" + hA + "')") > 0) {
+				+ añoNacimiento + ",'" + fN + "')") > 0) {
 			this.nombre = nombre;
 			this.setEmail(email);
 			this.setContraseña(contraseña);
 			this.añoNacimiento = añoNacimiento;
 			this.fechaNacimiento = fN;
-			this.momentoRegistro = mR;
-			this.horaAcostarse = hA;
+
 
 		} else {
 			throw new SQLException("No se ha podido insertar el usuario.");
@@ -96,8 +94,7 @@ public class Usuario implements Comparable{
 			this.email = cursor.getString("email");
 			this.añoNacimiento = cursor.getShort("anioNacimiento");
 			this.fechaNacimiento = cursor.getDate("fechaNacimiento").toLocalDate();
-			this.momentoRegistro = cursor.getTimestamp("momentoRegistro").toLocalDateTime();
-			this.horaAcostarse = cursor.getTime("horaAcostarse").toLocalTime();
+			
 		} else {
 			UtilsBD.desconectarBD();
 			throw new UsuarioNoExisteException("No existe el usuario en la BD.");
@@ -124,8 +121,7 @@ public class Usuario implements Comparable{
 			contraseña = devuelveDatos.getString("contrasena");
 			añoNacimiento = devuelveDatos.getShort("anioNacimiento");
 			this.fechaNacimiento = devuelveDatos.getDate("fechaNacimiento").toLocalDate();
-			this.momentoRegistro = devuelveDatos.getTimestamp("momentoRegistro").toLocalDateTime();
-			this.horaAcostarse = devuelveDatos.getTime("horaAcostarse").toLocalTime();
+			
 		} else {
 			UtilsBD.desconectarBD();
 			throw new SQLException("No se ha podido insertar el usuario");
@@ -250,43 +246,11 @@ public class Usuario implements Comparable{
 
 	}
 
-	public LocalDateTime getMomentoRegistro() {
-		return momentoRegistro;
-	}
 
-	public void setMomentoRegistro(LocalDateTime momentoRegistro) throws SQLException {
-		Statement smt = UtilsBD.conectarBD();
-		// La consulta se debe de hacer modificando la variable especifica del setter y
-		// haciendolo
-		// solo donde la PK coincida.
 
-		if (smt.executeUpdate(
-				"update usuario set nombre='" + momentoRegistro + "' where nombre='" + this.nombre + "'") > 0) {
-			this.momentoRegistro = momentoRegistro;
-		}
 
-		UtilsBD.desconectarBD();
 
-	}
 
-	public LocalTime getHoraAcostarse() {
-		return horaAcostarse;
-	}
-
-	public void setHoraAcostarse(LocalTime horaAcostarse) throws SQLException {
-		Statement smt = UtilsBD.conectarBD();
-		// La consulta se debe de hacer modificando la variable especifica del setter y
-		// haciendolo
-		// solo donde la PK coincida.
-
-		if (smt.executeUpdate(
-				"update usuario set nombre='" + horaAcostarse + "' where nombre='" + this.nombre + "'") > 0) {
-			this.horaAcostarse = horaAcostarse;
-
-		}
-
-		UtilsBD.desconectarBD();
-	}
 
 	/**
 	 * elimina el usuario de la base de datos y lo pone a null en Java para que no
@@ -311,8 +275,6 @@ public class Usuario implements Comparable{
 			this.contraseña = null;
 			this.email = null;
 			this.fechaNacimiento = null;
-			this.momentoRegistro = null;
-			this.horaAcostarse = null;
 		} catch (SQLException e) {
 			UtilsBD.desconectarBD();
 			return false;
@@ -336,8 +298,7 @@ public class Usuario implements Comparable{
 				actual.email = cursor.getString("email");
 				actual.añoNacimiento = cursor.getShort("anioNacimiento");
 				actual.fechaNacimiento = cursor.getDate("fechaNacimiento").toLocalDate();
-				actual.momentoRegistro = cursor.getTimestamp("momentoRegistro").toLocalDateTime();
-				actual.horaAcostarse = cursor.getTime("horaAcostarse").toLocalTime();
+
 
 				ret.add(actual);
 			}
@@ -357,8 +318,7 @@ public class Usuario implements Comparable{
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", email=" + email + ", añoNacimiento=" + añoNacimiento
-				+ ", fechaNacimiento=" + fechaNacimiento + ", momentoRegistro=" + momentoRegistro + ", horaAcostarse="
-				+ horaAcostarse + "]";
+				+ ", fechaNacimiento=" + fechaNacimiento  + "]";
 	}
 
 	@Override

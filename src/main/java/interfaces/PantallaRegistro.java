@@ -53,7 +53,7 @@ public class PantallaRegistro extends JPanel {
 		setLayout(gridBagLayout);
 				
 				JLabel icono = new JLabel("");
-				icono.setIcon(new ImageIcon("C:\\Users\\alexc\\Documents\\GitHub\\ProyectoFinalProgramacion\\imagenes\\Akatsuki-Logo-Peque\u00F1o.png"));
+				icono.setIcon(new ImageIcon("./imagenes/Akatsuki-Logo-Pequeno.png"));
 				GridBagConstraints gbc_icono = new GridBagConstraints();
 				gbc_icono.insets = new Insets(0, 0, 5, 5);
 				gbc_icono.gridx = 0;
@@ -273,6 +273,7 @@ public class PantallaRegistro extends JPanel {
 				}
 			}
 		});
+		
 	}
 }
 
