@@ -2,7 +2,7 @@ package superclases;
 
 public class EntidadPortada extends EntidadConNombre{
 	
-	private String descripcion;
+	protected String descripcion;
 
 	public EntidadPortada(String nombre, String descripcion) {
 		super(nombre);

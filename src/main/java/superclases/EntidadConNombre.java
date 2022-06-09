@@ -2,7 +2,7 @@ package superclases;
 
 public class EntidadConNombre {
 	
-	private String nombre;
+	protected String nombre;
 
 	public EntidadConNombre(String nombre) {
 		super();

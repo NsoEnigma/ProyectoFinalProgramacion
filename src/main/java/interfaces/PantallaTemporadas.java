@@ -1,36 +1,30 @@
 package interfaces;
 
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.BorderLayout;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JScrollPane;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import clases.Anime;
-import clases.Usuario;
+import clases.Temporada;
+import interfaces.Ventana;
 import elementosVisuales.ElementoListaAnimes;
+import elementosVisuales.ElementoListaTemporadas;
 
-import javax.swing.JButton;
-
-public class PantallaAnimes extends JPanel{
-	private Ventana ventana;
-	private Anime anime;
+public class PantallaTemporadas extends JPanel{
+private Ventana ventana;
+private Anime anime;
 	
-	public PantallaAnimes(Ventana v) {
-		ventana=v;
-		
+	public PantallaTemporadas(Ventana v,Anime a) {
+		this.ventana=v;
 		setBackground(Color.DARK_GRAY);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{210, 193, 0, 0};
@@ -59,15 +53,19 @@ public class PantallaAnimes extends JPanel{
 		gbc_scrollPane.gridy = 1;
 		add(scrollPane, gbc_scrollPane);
 		
-		JPanel listaAnimes = new JPanel();
-		listaAnimes.setBackground(Color.DARK_GRAY);
-		scrollPane.setViewportView(listaAnimes);
-		listaAnimes.setLayout(new BoxLayout(listaAnimes, BoxLayout.Y_AXIS));
+		JPanel listaTemporadas = new JPanel();
+		listaTemporadas.setBackground(Color.DARK_GRAY);
+		scrollPane.setViewportView(listaTemporadas);
+		listaTemporadas.setLayout(new BoxLayout(listaTemporadas, BoxLayout.Y_AXIS));
 		
-		ArrayList<Anime> todos=Anime.getTodos();
-		for(int i=0;i<todos.size();i++) {
-			listaAnimes.add(new ElementoListaAnimes(ventana,todos.get(i)));
+		ArrayList<Temporada> naruto=Temporada.getTemporadasNaruto();
+		for(int i=0;i<naruto.size();i++) {
+			listaTemporadas.add(new ElementoListaTemporadas(ventana,naruto.get(i)));
 		}
+		
+
+
 	}
 
 }
+

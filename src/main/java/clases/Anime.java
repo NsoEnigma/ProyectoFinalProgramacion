@@ -23,6 +23,7 @@ public class Anime extends EntidadPortada{
     
     private String nombre;
 	private String descripcion;
+	private ArrayList<Temporada> temporadas;
 	private byte numeroTemporadas;
 	
 
@@ -37,6 +38,11 @@ public class Anime extends EntidadPortada{
 		this.descripcion = descripcion;
 		this.numeroTemporadas = numeroTemporadas;
 		
+		
+	}
+	
+	public Anime(String nombre) {
+		//Te consulta todos los datos del anime con ese nombre, y de la tabla temporadas todas las temporadas
 	}
 
 	public Anime() {
@@ -71,9 +77,7 @@ public class Anime extends EntidadPortada{
 		// distintas.
 		UtilsBD.desconectarBD();
 		return ret;
-	}
-	
-	
+	}	
 	
 	public String getNombre() {
 		return nombre;
@@ -87,12 +91,23 @@ public class Anime extends EntidadPortada{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public ArrayList<Temporada> getTemporadas() {
+		return temporadas;
+	}
+
+	public void setTemporadas(ArrayList<Temporada> temporadas) {
+		this.temporadas = temporadas;
+	}
+
 	public byte getNumeroTemporadas() {
 		return numeroTemporadas;
 	}
+
 	public void setNumeroTemporadas(byte numeroTemporadas) {
 		this.numeroTemporadas = numeroTemporadas;
 	}
+	
 
 	
 	
