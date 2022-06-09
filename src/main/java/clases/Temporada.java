@@ -12,6 +12,7 @@ import superclases.EntidadPortada;
 import utils.UtilsBD;
 
 public class Temporada extends EntidadPortada {
+
 	private byte numeroTemporadas;
 	private Date fechaEstreno;
 	private String anime;
@@ -23,6 +24,8 @@ public class Temporada extends EntidadPortada {
 		this.numeroTemporadas = numeroTemporadas;
 		this.fechaEstreno = fechaEstreno;
 		this.anime = anime;
+		
+		
 	}
 	
 	public Temporada() {
@@ -53,37 +56,12 @@ public class Temporada extends EntidadPortada {
 		this.anime = anime;
 	}
 
-	public static ArrayList<Temporada> getTemporadasNaruto() {
-		Statement smt = UtilsBD.conectarBD();
-		// Inicializamos un ArrayList para devolver.
-		ArrayList<Temporada> temporadasNaruto = new ArrayList<Temporada>();
-
-		try {
-			ResultSet cursor = smt.executeQuery("select * from temporada where anime='Naruto'");
-			while (cursor.next()) {
-				Temporada actual = new Temporada();
-
-				actual.nombre = cursor.getString("nombre");
-				actual.descripcion = cursor.getString("descripcion");
-				actual.numeroTemporadas = cursor.getByte("numeroTemporada");
-				actual.fechaEstreno = cursor.getDate("fechaEstreno");
-				actual.anime = cursor.getString("anime");
-
-
-
-				temporadasNaruto.add(actual);
-			}
-		} catch (SQLException e) {
-			// Si la conuslta falla no hay nada que devolver.
-			e.printStackTrace();
-			return null;
-		}
-		// Si no hay usuarios en la tabla, va a devolver un arraylist vacio.
-		// Si la consulta fue erronea se devuelve un arraylist null, que son cosas
-		// distintas.
-		UtilsBD.desconectarBD();
-		return temporadasNaruto;
+	public void anime(String string) {
+		// TODO Auto-generated method stub
+		
 	}
+
+	
 	
 	
 	

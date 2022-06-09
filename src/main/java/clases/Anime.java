@@ -26,10 +26,12 @@ public class Anime extends EntidadPortada{
 	private ArrayList<Temporada> temporadas;
 	private byte numeroTemporadas;
 	
-
 	
 	
-	public Anime(String nombre, String descripcion, byte numeroTemporadas) {
+	
+	
+	
+	public Anime(String nombre, String descripcion, byte numeroTemporadas, String anime) {
 		super(nombre,descripcion);
 		PreparedStatement ps = null;
 		FileInputStream fis = null;
@@ -37,6 +39,12 @@ public class Anime extends EntidadPortada{
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.numeroTemporadas = numeroTemporadas;
+		
+		
+		
+		
+		
+		
 		
 		
 	}
@@ -52,6 +60,8 @@ public class Anime extends EntidadPortada{
 	public static ArrayList<Anime> getTodos() {
 		Statement smt = UtilsBD.conectarBD();
 		// Inicializamos un ArrayList para devolver.
+		
+		
 		ArrayList<Anime> ret = new ArrayList<Anime>();
 
 		try {
@@ -91,9 +101,38 @@ public class Anime extends EntidadPortada{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	public static ArrayList<Temporada> getTemporadas() {
+		Statement smt = UtilsBD.conectarBD();
+        // Inicializamos un ArrayList para devolver.
+        ArrayList<Temporada> temporadas = new ArrayList<Temporada>();
+        
+        
+        try {
+            ResultSet cursor = smt.executeQuery("SELECT * FROM temporada where anime= '" +  + "';" );
+            while (cursor.next()) {
+                Temporada actual = new Temporada();
 
-	public ArrayList<Temporada> getTemporadas() {
-		return temporadas;
+                actual.setNombre(cursor.getString("nombre"));
+                actual.setDescripcion(cursor.getString("descripcion"));
+                actual.setNumeroTemporadas(cursor.getByte("numeroTemporada"));
+                actual.setFechaEstreno(cursor.getDate("fechaEstreno"));
+                actual.setAnime(cursor.getString("anime"));
+
+
+
+                temporadas.add(actual);
+            }
+        } catch (SQLException e) {
+            // Si la conuslta falla no hay nada que devolver.
+            e.printStackTrace();
+            return null;
+        }
+        // Si no hay usuarios en la tabla, va a devolver un arraylist vacio.
+        // Si la consulta fue erronea se devuelve un arraylist null, que son cosas
+        // distintas.
+        UtilsBD.desconectarBD();
+        return temporadas;
 	}
 
 	public void setTemporadas(ArrayList<Temporada> temporadas) {

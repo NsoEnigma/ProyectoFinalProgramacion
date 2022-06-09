@@ -23,7 +23,7 @@ public class PantallaTemporadas extends JPanel{
 private Ventana ventana;
 private Anime anime;
 	
-	public PantallaTemporadas(Ventana v,Anime a) {
+	public PantallaTemporadas(Ventana v) {
 		this.ventana=v;
 		setBackground(Color.DARK_GRAY);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -58,7 +58,7 @@ private Anime anime;
 		scrollPane.setViewportView(listaTemporadas);
 		listaTemporadas.setLayout(new BoxLayout(listaTemporadas, BoxLayout.Y_AXIS));
 		
-		ArrayList<Temporada> naruto=Temporada.getTemporadasNaruto();
+		ArrayList<Temporada> naruto=Anime.getTemporadas();
 		for(int i=0;i<naruto.size();i++) {
 			listaTemporadas.add(new ElementoListaTemporadas(ventana,naruto.get(i)));
 		}
