@@ -13,7 +13,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import clases.Usuario;
-import elementosVisuales.botonesInicio;
+import elementosVisuales.BotonesInicio;
 import exceptions.ContraseñaIncorrectaException;
 import exceptions.UsuarioNoExisteException;
 import interfaces.Ventana;
@@ -98,7 +98,7 @@ public class PantallaLogin extends JPanel{
 		gbc_labelContraseña.gridy = 5;
 		add(labelContraseña, gbc_labelContraseña);
 		
-		JButton botonLogin = new botonesInicio("Login");
+		JButton botonLogin = new BotonesInicio("Login");
 		botonLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

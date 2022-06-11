@@ -19,6 +19,7 @@ import javax.swing.JScrollPane;
 import clases.Anime;
 import clases.Capitulo;
 import clases.Temporada;
+import elementosVisuales.BotonConSonido;
 import elementosVisuales.ElementoListaCapitulos;
 import elementosVisuales.ElementoListaTemporadas;
 
@@ -59,7 +60,7 @@ public class PantallaCapitulos extends JPanel{
 		gbc_scrollPane.gridy = 1;
 		add(scrollPane, gbc_scrollPane);
 		
-		JButton botonAtras = new JButton("\u27A1");
+		JButton botonAtras = new BotonConSonido("\u27A1");
 		GridBagConstraints gbc_botonAtras = new GridBagConstraints();
 		gbc_botonAtras.insets = new Insets(0, 0, 5, 0);
 		gbc_botonAtras.gridx = 5;

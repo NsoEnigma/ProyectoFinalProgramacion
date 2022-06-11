@@ -9,7 +9,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import clases.Usuario;
-import elementosVisuales.botonesInicio;
+import elementosVisuales.BotonesInicio;
 import exceptions.ContraseñaIncorrectaException;
 import exceptions.UsuarioNoExisteException;
 
@@ -50,7 +50,7 @@ public class PantallaInicio extends JPanel{
 		
 
 		
-		JButton botonLogin = new botonesInicio("Login");
+		JButton botonLogin = new BotonesInicio("Login");
 		botonLogin.setBackground(Color.LIGHT_GRAY);
 		botonLogin.setForeground(Color.RED);
 		botonLogin.setBounds(230, 302, 112, 32);
@@ -64,7 +64,7 @@ public class PantallaInicio extends JPanel{
 			
 		});
 		
-		JButton botonRegistro = new botonesInicio("Registrar");
+		JButton botonRegistro = new BotonesInicio("Registrar");
 		botonRegistro.setForeground(Color.RED);
 		botonRegistro.setBounds(411, 302, 112, 32);
 		add(botonRegistro);

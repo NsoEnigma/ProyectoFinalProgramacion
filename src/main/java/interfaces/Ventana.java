@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import clases.Capitulo;
+import clases.Ova;
 import clases.Temporada;
 import clases.Usuario;
 
@@ -21,6 +22,7 @@ public class Ventana extends JFrame{
 	protected Usuario usuarioLogado;
 	public Temporada temporadaActual;
 	public Capitulo capituloActual;
+	public Ova ovaActual;
 	private static final long serialVersionUID = 1L;
 	
 	public Ventana() {
@@ -64,6 +66,9 @@ public class Ventana extends JFrame{
 			break;
 			case "capitulo":
 				this.pantallaActual=new PantallaCapitulos(this);
+			break;
+			case "ova":
+				this.pantallaActual=new PantallaOvas(this);
 			break;
 		}
 		this.pantallaActual.setVisible(true);

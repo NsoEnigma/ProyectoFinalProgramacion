@@ -25,7 +25,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import clases.Usuario;
-import elementosVisuales.botonesInicio;
+import elementosVisuales.BotonesInicio;
 import enums.Pais;
 import exceptions.AñoInvalidoException;
 import exceptions.ContraseñaVaciaException;
@@ -215,7 +215,7 @@ public class PantallaRegistro extends JPanel {
 		gbc_selectorPais.gridy = 7;
 		add(selectorPais, gbc_selectorPais);
 
-		JButton botonRegistro = new botonesInicio("Registrarse");
+		JButton botonRegistro = new BotonesInicio("Registrarse");
 
 		GridBagConstraints gbc_botonRegistro = new GridBagConstraints();
 		gbc_botonRegistro.fill = GridBagConstraints.HORIZONTAL;

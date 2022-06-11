@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,6 +25,7 @@ public class Anime extends EntidadPortada{
     private String nombre;
 	private String descripcion;
 	private ArrayList<Temporada> temporadas;
+	private ArrayList<Ova> ovas;
 	private byte numeroTemporadas;
 	
 	
@@ -31,8 +33,8 @@ public class Anime extends EntidadPortada{
 	
 	
 	
-	public Anime(String nombre, String descripcion, byte numeroTemporadas, String anime) {
-		super(nombre,descripcion);
+	public Anime(String nombre, String descripcion, byte numeroTemporadas, String anime, Date fechaEmision) {
+		super(nombre,descripcion,fechaEmision);
 		PreparedStatement ps = null;
 		FileInputStream fis = null;
 		
@@ -70,6 +72,7 @@ public class Anime extends EntidadPortada{
 				Anime actual = new Anime();
 
 				actual.nombre = cursor.getString("nombre");
+				actual.setFechaEmision(cursor.getDate("fechaEstreno"));
 				actual.descripcion = cursor.getString("descripcion");
 				actual.numeroTemporadas = cursor.getByte("numeroTemporada");
 
@@ -115,7 +118,7 @@ public class Anime extends EntidadPortada{
                 actual.setNombre(cursor.getString("nombre"));
                 actual.setDescripcion(cursor.getString("descripcion"));
                 actual.setNumeroTemporadas(cursor.getByte("numeroTemporada"));
-                actual.setFechaEstreno(cursor.getDate("fechaEstreno"));
+                actual.setFechaEmision(cursor.getDate("fechaEstreno"));
                 actual.setAnime(cursor.getString("anime"));
 
 
@@ -134,11 +137,15 @@ public class Anime extends EntidadPortada{
         UtilsBD.desconectarBD();
         return temporadas;
 	}
+	
 
 	public void setTemporadas(ArrayList<Temporada> temporadas) {
 		this.temporadas = temporadas;
 	}
-
+	
+	public void setOvas(ArrayList<Ova> ovas) {
+		this.ovas = ovas;
+	}
 	public byte getNumeroTemporadas() {
 		return numeroTemporadas;
 	}
@@ -146,6 +153,14 @@ public class Anime extends EntidadPortada{
 	public void setNumeroTemporadas(byte numeroTemporadas) {
 		this.numeroTemporadas = numeroTemporadas;
 	}
+	
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	protected String text;
 	
 
 	

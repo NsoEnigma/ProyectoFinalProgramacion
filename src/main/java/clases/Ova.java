@@ -8,36 +8,30 @@ import java.sql.Statement;
 import superclases.EntidadPortada;
 import utils.UtilsBD;
 
-public class Capitulo extends EntidadPortada{
-	
+public class Ova extends EntidadPortada{
 	private String link;
-	private Byte numeroCapitulo;
+	private Byte numeroOva;
 	private String temporada;
-	protected String text;
 	
 	
 	
-	public Capitulo(String nombre, String descripcion, String link, Byte numeroCapitulo, String temporada,
-			Date fechaEmision) {
+	public Ova(String nombre, String descripcion, Date fechaEmision, String link, Byte numeroOva, String temporada) {
 		super(nombre, descripcion, fechaEmision);
 		this.link = link;
-		this.numeroCapitulo = numeroCapitulo;
+		this.numeroOva = numeroOva;
 		this.temporada = temporada;
-		
 	}
-
-
-
-	public Capitulo(String text) {
+	
+	public Ova(String text) {
 
 		Statement smt = UtilsBD.conectarBD();
 
 		try {
-			ResultSet cursor = smt.executeQuery("SELECT * FROM capitulo WHERE temporada='" + text + "';");
+			ResultSet cursor = smt.executeQuery("SELECT * FROM ova WHERE temporada='" + text + "';");
 			while (cursor.next()) {
 
-				this.setNumeroCapitulo(cursor.getByte("numeroCapitulo"));
-				this.setFechaEmision(cursor.getDate("fechaEmision"));
+				this.setNumeroOva(cursor.getByte("numeroOva"));
+				this.setFechaEmision(cursor.getDate("fechaEstreno"));
 				this.setNombre(cursor.getString("nombre"));
 				this.setTemporada(cursor.getString("temporada"));
 				this.setDescripcion(cursor.getString("descripcion"));
@@ -53,42 +47,35 @@ public class Capitulo extends EntidadPortada{
 		UtilsBD.desconectarBD();
 	}
 	
-	
-	public Capitulo() {
+	public Ova() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+	public Byte getNumeroOva() {
+		return numeroOva;
+	}
+	public void setNumeroOva(Byte numeroOva) {
+		this.numeroOva = numeroOva;
+	}
+	public String getTemporada() {
+		return temporada;
+	}
+	public void setTemporada(String temporada) {
+		this.temporada = temporada;
 	}
 	public String getText() {
 		return text;
 	}
-
 	public void setText(String text) {
 		this.text = text;
 	}
-
-	public String getLink() {
-		return link;
-	}
-
-	public void setLink(String link) {
-		this.link = link;
-	}
-
-	public Byte getNumeroCapitulo() {
-		return numeroCapitulo;
-	}
-
-	public void setNumeroCapitulo(Byte numeroCapitulo) {
-		this.numeroCapitulo = numeroCapitulo;
-	}
-
-	public String getTemporada() {
-		return temporada;
-	}
-
-	public void setTemporada(String temporada) {
-		this.temporada = temporada;
-	}
-
+	protected String text;
 	
 	
 }

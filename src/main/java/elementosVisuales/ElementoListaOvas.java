@@ -17,29 +17,29 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import clases.Capitulo;
-
+import clases.Ova;
 import interfaces.Ventana;
 
-public class ElementoListaCapitulos extends JPanel{
+public class ElementoListaOvas extends JPanel {
 	private Ventana ventana;
-	private Capitulo capitulo;
-	
-	public ElementoListaCapitulos(Ventana v, Capitulo t) {
+	private Ova ova;
+
+	public ElementoListaOvas(Ventana v, Ova o) {
 		super();
 		this.ventana = v;
-		this.capitulo = t;
+		this.ova = o;
 		setBorder(new LineBorder(new Color(218, 165, 32), 3, true));
-		this.setMaximumSize(new Dimension(80000,137));
+		this.setMaximumSize(new Dimension(80000, 137));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{50, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 50, 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		JLabel fotoUsuario = new JLabel("");
-		
-		if (this.capitulo.getNombre().contains("Naruto")) {
+
+		if (this.ova.getNombre().contains("Naruto")) {
 			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\naruto.jpg"));
 			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
 			gbc_fotoUsuario.gridheight = 3;
@@ -47,7 +47,7 @@ public class ElementoListaCapitulos extends JPanel{
 			gbc_fotoUsuario.gridx = 0;
 			gbc_fotoUsuario.gridy = 0;
 			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.capitulo.getTemporada().contains("Spy x Family")) {
+		} else if (this.ova.getTemporada().contains("Spy x Family")) {
 			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\2-scaled.jpg"));
 			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
 			gbc_fotoUsuario.gridheight = 3;
@@ -55,7 +55,7 @@ public class ElementoListaCapitulos extends JPanel{
 			gbc_fotoUsuario.gridx = 0;
 			gbc_fotoUsuario.gridy = 0;
 			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.capitulo.getTemporada().contains("Tokyo Ghoul")) {
+		} else if (this.ova.getTemporada().contains("Tokyo Ghoul")) {
 			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\tkg.jpg"));
 			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
 			gbc_fotoUsuario.gridheight = 3;
@@ -63,7 +63,7 @@ public class ElementoListaCapitulos extends JPanel{
 			gbc_fotoUsuario.gridx = 0;
 			gbc_fotoUsuario.gridy = 0;
 			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.capitulo.getTemporada().contains("Konosuba")) {
+		} else if (this.ova.getTemporada().contains("Konosuba")) {
 			fotoUsuario.setIcon(new ImageIcon("./imagenes/konosuba.jpg"));
 			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
 			gbc_fotoUsuario.gridheight = 3;
@@ -73,8 +73,7 @@ public class ElementoListaCapitulos extends JPanel{
 			add(fotoUsuario, gbc_fotoUsuario);
 		}
 		
-		
-		final JLabel labelNombre = new JLabel(this.capitulo.getNombre());
+		final JLabel labelNombre = new JLabel(this.ova.getNombre());
 		labelNombre.setHorizontalAlignment(SwingConstants.LEFT);
 		labelNombre.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		GridBagConstraints gbc_labelNombre = new GridBagConstraints();
@@ -85,7 +84,7 @@ public class ElementoListaCapitulos extends JPanel{
 		gbc_labelNombre.gridy = 0;
 		add(labelNombre, gbc_labelNombre);
 		
-		JLabel labelDescripcion = new JLabel(this.capitulo.getDescripcion());
+		JLabel labelDescripcion = new JLabel(this.ova.getDescripcion());
 		labelDescripcion.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		GridBagConstraints gbc_labelDescripcion = new GridBagConstraints();
 		gbc_labelDescripcion.insets = new Insets(0, 0, 5, 5);
@@ -100,27 +99,17 @@ public class ElementoListaCapitulos extends JPanel{
 		gbc_labelGuion.gridy = 1;
 		add(labelGuion, gbc_labelGuion);
 		
-		JButton verCapitulo = new BotonConSonido("Ver Capitulos");
-		verCapitulo.addMouseListener(new MouseAdapter() {
+		JButton verOva = new BotonConSonido("Ver Ovas");
+		verOva.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
 				
-				ventana.capituloActual = new Capitulo(labelNombre.getText());
-				ventana.cambiarAPantalla("capitulo");
+				ventana.ovaActual = new Ova(labelNombre.getText());
+				ventana.cambiarAPantalla("ova");
 			}
 		});
-		
-		JLabel labelNumeroTemporadas = new JLabel(""+this.capitulo.getNumeroCapitulo()+" capitulo");
-		GridBagConstraints gbc_labelNumeroTemporadas = new GridBagConstraints();
-		gbc_labelNumeroTemporadas.insets = new Insets(0, 0, 5, 5);
-		gbc_labelNumeroTemporadas.gridx = 3;
-		gbc_labelNumeroTemporadas.gridy = 1;
-		add(labelNumeroTemporadas, gbc_labelNumeroTemporadas);
-		
-		
-		
-		
-		
+
 	}
+
 }
