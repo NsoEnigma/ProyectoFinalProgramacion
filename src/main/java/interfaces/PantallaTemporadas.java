@@ -5,10 +5,13 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -53,12 +56,26 @@ private Anime anime;
 		gbc_scrollPane.gridy = 1;
 		add(scrollPane, gbc_scrollPane);
 		
+		JButton botonAtras = new JButton("\u27A1");
+		GridBagConstraints gbc_botonAtras = new GridBagConstraints();
+		gbc_botonAtras.insets = new Insets(0, 0, 5, 0);
+		gbc_botonAtras.gridx = 5;
+		gbc_botonAtras.gridy = 0;
+		add(botonAtras, gbc_botonAtras);
+		
+		botonAtras.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.cambiarAPantalla("anime");
+			}
+		});
+		
 		JPanel listaTemporadas = new JPanel();
 		listaTemporadas.setBackground(Color.DARK_GRAY);
 		scrollPane.setViewportView(listaTemporadas);
 		listaTemporadas.setLayout(new BoxLayout(listaTemporadas, BoxLayout.Y_AXIS));
 		
-		ArrayList<Temporada> naruto=Anime.getTemporadas();
+		ArrayList<Temporada> naruto=Anime.getTemporadas(this.ventana.temporadaActual.getAnime());
 		for(int i=0;i<naruto.size();i++) {
 			listaTemporadas.add(new ElementoListaTemporadas(ventana,naruto.get(i)));
 		}

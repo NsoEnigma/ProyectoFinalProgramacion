@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import clases.Anime;
+import clases.Capitulo;
 import clases.Temporada;
 import interfaces.Ventana;
 
@@ -75,7 +76,7 @@ public class ElementoListaTemporadas extends JPanel{
 		}
 		
 		
-		JLabel labelNombre = new JLabel(this.temporada.getNombre());
+		final JLabel labelNombre = new JLabel(this.temporada.getNombre());
 		labelNombre.setHorizontalAlignment(SwingConstants.LEFT);
 		labelNombre.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		GridBagConstraints gbc_labelNombre = new GridBagConstraints();
@@ -107,6 +108,23 @@ public class ElementoListaTemporadas extends JPanel{
 		gbc_labelNumeroTemporadas.gridx = 3;
 		gbc_labelNumeroTemporadas.gridy = 1;
 		add(labelNumeroTemporadas, gbc_labelNumeroTemporadas);
+		
+		JButton verCapitulo = new JButton("Ver Capitulos");
+		verCapitulo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.capituloActual = new Capitulo(labelNombre.getText());
+				ventana.cambiarAPantalla("capitulo");
+			}
+		});
+		GridBagConstraints gbc_verCapitulo = new GridBagConstraints();
+		gbc_verCapitulo.anchor = GridBagConstraints.WEST;
+		gbc_verCapitulo.insets = new Insets(0, 0, 0, 5);
+		gbc_verCapitulo.gridx = 1;
+		gbc_verCapitulo.gridy = 2;
+		add(verCapitulo, gbc_verCapitulo);
+		
+		
 		
 		
 		

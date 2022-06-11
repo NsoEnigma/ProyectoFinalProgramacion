@@ -1,35 +1,35 @@
 package interfaces;
 
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.BorderLayout;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JScrollPane;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import clases.Anime;
-import clases.Usuario;
-import elementosVisuales.ElementoListaAnimes;
+import clases.Capitulo;
+import clases.Temporada;
+import elementosVisuales.ElementoListaCapitulos;
+import elementosVisuales.ElementoListaTemporadas;
 
-import javax.swing.JButton;
-
-public class PantallaAnimes extends JPanel{
-	private Ventana ventana;
-	private Anime anime;
+public class PantallaCapitulos extends JPanel{
 	
-	public PantallaAnimes(Ventana v) {
-		ventana=v;
+	private Ventana ventana;
+	private Temporada temporada;
+	private Capitulo capìtulo;
+	
+	public PantallaCapitulos(Ventana v) {
+		this.ventana=v;
 		
 		setBackground(Color.DARK_GRAY);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -69,19 +69,18 @@ public class PantallaAnimes extends JPanel{
 		botonAtras.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventana.cambiarAPantalla("inicio");
+				ventana.cambiarAPantalla("temporada");
 			}
 		});
 		
-		JPanel listaAnimes = new JPanel();
-		listaAnimes.setBackground(Color.DARK_GRAY);
-		scrollPane.setViewportView(listaAnimes);
-		listaAnimes.setLayout(new BoxLayout(listaAnimes, BoxLayout.Y_AXIS));
+		JPanel listaCapitulos = new JPanel();
+		listaCapitulos.setBackground(Color.DARK_GRAY);
+		scrollPane.setViewportView(listaCapitulos);
+		listaCapitulos.setLayout(new BoxLayout(listaCapitulos, BoxLayout.Y_AXIS));
 		
-		ArrayList<Anime> todos=Anime.getTodos();
-		for(int i=0;i<todos.size();i++) {
-			listaAnimes.add(new ElementoListaAnimes(ventana,todos.get(i)));
+		ArrayList<Capitulo> capitulos=Temporada.getCapitulos(this.ventana.capituloActual.getTemporada());
+		for(int i=0;i<capitulos.size();i++) {
+			listaCapitulos.add(new ElementoListaCapitulos(ventana,capitulos.get(i)));
 		}
 	}
-
 }

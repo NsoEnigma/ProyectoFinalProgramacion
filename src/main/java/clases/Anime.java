@@ -102,14 +102,13 @@ public class Anime extends EntidadPortada{
 		this.descripcion = descripcion;
 	}
 	
-	public static ArrayList<Temporada> getTemporadas() {
+	public static ArrayList<Temporada> getTemporadas(String text) {
 		Statement smt = UtilsBD.conectarBD();
         // Inicializamos un ArrayList para devolver.
         ArrayList<Temporada> temporadas = new ArrayList<Temporada>();
         
-        
         try {
-            ResultSet cursor = smt.executeQuery("SELECT * FROM temporada where anime= '" +  + "';" );
+            ResultSet cursor = smt.executeQuery("SELECT * FROM temporada where anime= '" + text + "';" );
             while (cursor.next()) {
                 Temporada actual = new Temporada();
 
@@ -128,6 +127,7 @@ public class Anime extends EntidadPortada{
             e.printStackTrace();
             return null;
         }
+       
         // Si no hay usuarios en la tabla, va a devolver un arraylist vacio.
         // Si la consulta fue erronea se devuelve un arraylist null, que son cosas
         // distintas.

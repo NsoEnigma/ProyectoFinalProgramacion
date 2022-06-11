@@ -11,15 +11,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import clases.Capitulo;
+import clases.Temporada;
 import clases.Usuario;
 
 public class Ventana extends JFrame{
 	/** Contiene a la única pantalla activa en cada momento **/
 	private JPanel pantallaActual;
 	protected Usuario usuarioLogado;
+	public Temporada temporadaActual;
+	public Capitulo capituloActual;
 	private static final long serialVersionUID = 1L;
 	
 	public Ventana() {
+		temporadaActual=new Temporada("Konosuba");
 		this.setSize(800,500);
 		this.setLocationRelativeTo(null); //Te pone la ventana en el centro de la pantalla
 		this.setIconImage(new ImageIcon("./imagenes/Akatsuki-Logo.png").getImage());
@@ -56,6 +61,9 @@ public class Ventana extends JFrame{
 			break;
 			case "temporada":
 				this.pantallaActual=new PantallaTemporadas(this);
+			break;
+			case "capitulo":
+				this.pantallaActual=new PantallaCapitulos(this);
 			break;
 		}
 		this.pantallaActual.setVisible(true);
