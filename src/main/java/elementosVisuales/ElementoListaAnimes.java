@@ -115,7 +115,7 @@ public class ElementoListaAnimes extends JPanel{
 		gbc_labelDescripcion.gridy = 1;
 		add(labelDescripcion, gbc_labelDescripcion);
 		
-		JButton verAnime = new BotonConSonido("Ver anime");
+		JButton verAnime = new BotonConSonido("Ver Temporadas");
 		verAnime.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

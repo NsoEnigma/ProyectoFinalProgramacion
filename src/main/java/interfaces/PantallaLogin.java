@@ -134,7 +134,7 @@ public class PantallaLogin extends JPanel{
 		});
 		
 		campoContraseña = new JPasswordField();
-		campoContraseña.setEchoChar('$');
+		campoContraseña.setEchoChar('*');
 		GridBagConstraints gbc_campoContraseña = new GridBagConstraints();
 		gbc_campoContraseña.fill = GridBagConstraints.BOTH;
 		gbc_campoContraseña.insets = new Insets(0, 0, 5, 5);
