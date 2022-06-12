@@ -8,13 +8,27 @@ import java.sql.Statement;
 import superclases.EntidadPortada;
 import utils.UtilsBD;
 
+/**
+ * Clase con todos los constructores y todo lo relacionado con las ovas
+ * @author Alejandro Asencio Montes
+ *
+ */
 public class Ova extends EntidadPortada{
 	private String link;
 	private Byte numeroOva;
 	private String temporada;
 	
 	
-	
+	/**
+	 * Cosntructor para crear nuestra ova
+	 * @param nombre nombre de la ova
+	 * @param descripcion descripcion de la ova
+	 * @param fechaEmision fecha de emision de la ova
+	 * @param link link de la ova 
+	 * @param numeroOva numero de la ova
+	 * @param temporada temporada a la que pertenece la ova
+	 * @param imagenRuta ruta de la portada de la ova
+	 */
 	public Ova(String nombre, String descripcion, Date fechaEmision, String link, Byte numeroOva, String temporada, String imagenRuta) {
 		super(nombre, descripcion, fechaEmision, imagenRuta);
 		this.link = link;
@@ -22,6 +36,10 @@ public class Ova extends EntidadPortada{
 		this.temporada = temporada;
 	}
 	
+	/**
+	 * Constructor que consulta todas las ovas de la base de datos
+	 * @param text texto para que se muestre cada ova en su correspondiente temporada
+	 */
 	public Ova(String text) {
 
 		Statement smt = UtilsBD.conectarBD();

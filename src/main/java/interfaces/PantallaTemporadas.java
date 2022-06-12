@@ -23,10 +23,23 @@ import elementosVisuales.BotonConSonido;
 import elementosVisuales.ElementoListaAnimes;
 import elementosVisuales.ElementoListaTemporadas;
 
+/**
+ * 
+ * Pantalla en la que se mostraran las temporadas de cada anime distribuidas en secciones.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class PantallaTemporadas extends JPanel{
 private Ventana ventana;
 private Anime anime;
 	
+/**
+ * Pantalla temporada va generando un apartado de cada anime con sus distintas propiedades sacadas de la base de datos para mostrar en un 
+ * ArrayList<Temporada> cada una de las distintas temporadas de los animes.
+ * @param v Con este objeto ventana nuestra pantalla tendra los valores por defecto de la clase Ventana.
+ */
+
 	public PantallaTemporadas(Ventana v) {
 		this.ventana=v;
 		setBackground(Color.DARK_GRAY);

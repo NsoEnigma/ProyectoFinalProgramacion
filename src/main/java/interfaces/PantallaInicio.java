@@ -24,8 +24,21 @@ import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
+/**
+ * 
+ * Pantalla en la que el individuo elegira si inicar sesion o registrar un nuevo usuario.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class PantallaInicio extends JPanel{
 	private Ventana ventana;
+	
+	/**
+	 * PantallaInicio es el constructor utilizado para crear nuestra pantalla Incio donde el usuario elegira 
+	 * una de las opciones indicadas anteriormente.
+	 * @param v Con este objeto ventana nuestra pantalla tendra los valores por defecto de la clase Ventana.
+	 */
 	
 	public PantallaInicio(Ventana v) {
 		this.ventana=v;

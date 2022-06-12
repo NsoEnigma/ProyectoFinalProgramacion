@@ -20,10 +20,23 @@ import clases.Capitulo;
 import clases.Ova;
 import interfaces.Ventana;
 
+/**
+ * 
+ * Elemento visual que contiene el estilo de como se mostrar las ovas con sus datos preestablecidos,
+ * esto se utiliza para ahorrar codigo.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class ElementoListaOvas extends JPanel {
 	private Ventana ventana;
 	private Ova ova;
 
+	/**
+	 * Constructor que sirve para asignar un estilo personalizado.
+	 * @param m Texto asignado.
+	 */
+	
 	public ElementoListaOvas(Ventana v, Ova o) {
 		super();
 		this.ventana = v;

@@ -16,6 +16,12 @@ import clases.Ova;
 import clases.Temporada;
 import clases.Usuario;
 
+/**
+ * Esta clase ventana nos crea la pantalla con unos valores preestablecidos
+ * @author Alejandro Asencio Montes
+ *
+ */
+
 public class Ventana extends JFrame{
 	/** Contiene a la única pantalla activa en cada momento **/
 	private JPanel pantallaActual;
@@ -24,9 +30,15 @@ public class Ventana extends JFrame{
 	public Capitulo capituloActual;
 	public Ova ovaActual;
 	private static final long serialVersionUID = 1L;
-	public HashMap<String,JPanel> pantallas;
 	private String nombreUsuario;
 	private String contraseniaUsuario;
+	
+	/**
+	 * El constructor ventana es utilizado para genrerar las pantalla con sus valores indicados ademas de una pequela personalizacion como
+	 * pueden ser el logo o la localizacion de la pantalla. Ademas se indica la pantalla con la que el programa comenzara.
+	 * @param nombreUsuario Nombre de usuario usada en el Login.
+	 * @param contraseniaUsuario Contraseña de usuario usada en el Login.
+	 */
 	
 	public Ventana(String nombreUsuario, String contraseniaUsuario) {
 		this.nombreUsuario=nombreUsuario;
@@ -42,10 +54,16 @@ public class Ventana extends JFrame{
 		this.pantallaActual=new PantallaInicio(this);
 		this.setContentPane(pantallaActual);
 		
-		//this.setResizable(false);
+		this.setResizable(false);
 		this.setVisible(true);
 		
 	}
+	
+	/**
+	 * Funcion cambiarAPantalla sirve para indicar la pantalla que queremos ver al realizar una accion en nuestro programa. Se utiliza con 
+	 * el constructor seguido de un string que indicamos a esa pantalla especifica (nombrePantalla)
+	 * @param nombrePantalla Nombre de la pantalla a la que queremos cambiar.
+	 */
 	
 	public void cambiarAPantalla(String nombrePantalla) {
 		//Primero la ponemos invisible y la eliminamos
@@ -72,9 +90,6 @@ public class Ventana extends JFrame{
 			break;
 			case "ova":
 				this.pantallaActual=new PantallaOvas(this);
-			break;
-			case "elegir":
-				this.pantallaActual=new PantallaElegir(this);
 			break;
 		}
 		this.pantallaActual.setVisible(true);

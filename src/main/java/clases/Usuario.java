@@ -22,7 +22,7 @@ import utils.UtilsBD;
  * DAO de usuario que hace que todas las operaciones CRUD dentro de sus
  * funciones
  * 
- * @author Marcos
+ * @author Alejandro Asencio Montes
  *
  */
 public class Usuario implements Comparable{
@@ -33,7 +33,18 @@ public class Usuario implements Comparable{
 	private LocalDate fechaNacimiento;
 	private ArrayList<Anime> favoritos;
 
-
+	/**
+	 * Constructor que nos permite crear el usuario.
+	 * @param nombre NOmbre del usuario
+	 * @param email Email del usuario
+	 * @param contraseña Contraseña del usuario
+	 * @param añoNacimiento Año de nacimiento del usuario
+	 * @throws SQLException Error que saltara cuando haya algun error relacionado con SQL
+	 * @throws ContraseñaVaciaException Error que saltara cuando la contraseña este vacia
+	 * @throws EmailValidoException Error que saltara cuando el email no sea valido
+	 * @throws AñoInvalidoException Error que saltara cuando el año no sea valido
+	 * @throws DateTimeException Error que saltara cuando el DateTime no sea valido
+	 */
 	public Usuario(String nombre, String email, String contraseña, short añoNacimiento, LocalDate fN, LocalDateTime mR,
 			LocalTime hA) throws SQLException, ContraseñaVaciaException, EmailValidoException, AñoInvalidoException,
 			DateTimeException {
@@ -180,6 +191,7 @@ public class Usuario implements Comparable{
 	public String getEmail() {
 		return email;
 	}
+	
 
 	public void setEmail(String email) throws SQLException, EmailValidoException {
 		if (!this.emailVallido(email)) {
@@ -198,6 +210,7 @@ public class Usuario implements Comparable{
 	public String getContraseña() {
 		return contraseña;
 	}
+	
 
 	public void setContraseña(String contraseña) throws SQLException, ContraseñaVaciaException {
 		if (contraseña.isBlank()) {
@@ -278,7 +291,11 @@ public class Usuario implements Comparable{
 		UtilsBD.desconectarBD();
 		return ret;
 	}
-
+	
+	/**
+	 * Constructor para obtener todos los usuarios con sus datos de la base de datos
+	 * @return arraylist usuario con todo su contenido
+	 */
 	public static ArrayList<Usuario> getTodos() {
 		Statement smt = UtilsBD.conectarBD();
 		// Inicializamos un ArrayList para devolver.

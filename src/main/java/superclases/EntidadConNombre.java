@@ -1,5 +1,13 @@
 package superclases;
 
+
+/**
+ * 
+ * superclase que nos proporciona la variable nombre.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class EntidadConNombre {
 	
 	protected String nombre;

@@ -20,9 +20,23 @@ import clases.Capitulo;
 
 import interfaces.Ventana;
 
+/**
+ * 
+ * Elemento visual que contiene el estilo de como se mostrar los capitulos con sus datos preestablecidos,
+ * esto se utiliza para ahorrar codigo.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class ElementoListaCapitulos extends JPanel{
 	private Ventana ventana;
 	private Capitulo capitulo;
+	
+	/**
+	 * Constructor que sirve para asignar un estilo personalizado.
+	 * @param m Texto asignado.
+	 */
+	
 	
 	public ElementoListaCapitulos(Ventana v, Capitulo t) {
 		super();
@@ -74,16 +88,7 @@ public class ElementoListaCapitulos extends JPanel{
 		gbc_labelGuion.gridy = 1;
 		add(labelGuion, gbc_labelGuion);
 		
-		JButton verCapitulo = new BotonConSonido("Ver Capitulos");
-		verCapitulo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				
-				ventana.capituloActual = new Capitulo(labelNombre.getText());
-				ventana.cambiarAPantalla("capitulo");
-			}
-		});
+		
 		
 		JLabel labelNumeroTemporadas = new JLabel(""+this.capitulo.getNumeroCapitulo()+" capitulo");
 		GridBagConstraints gbc_labelNumeroTemporadas = new GridBagConstraints();
@@ -91,6 +96,13 @@ public class ElementoListaCapitulos extends JPanel{
 		gbc_labelNumeroTemporadas.gridx = 3;
 		gbc_labelNumeroTemporadas.gridy = 1;
 		add(labelNumeroTemporadas, gbc_labelNumeroTemporadas);
+		
+		JButton verCapitulo = new JButton("New button");
+		GridBagConstraints gbc_verCapitulo = new GridBagConstraints();
+		gbc_verCapitulo.insets = new Insets(0, 0, 0, 5);
+		gbc_verCapitulo.gridx = 1;
+		gbc_verCapitulo.gridy = 2;
+		add(verCapitulo, gbc_verCapitulo);
 		
 		
 		

@@ -30,10 +30,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * 
+ * Elemento visual que contiene el estilo de como se mostrar los animes con sus datos preestablecidos,
+ * esto se utiliza para ahorrar codigo.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class ElementoListaAnimes extends JPanel{
 
 	private Ventana ventana;
 	private Anime anime;
+	
+	/**
+	 * Constructor que sirve para asignar un estilo personalizado.
+	 * @param m Texto asignado.
+	 */
+	
 	public ElementoListaAnimes(Ventana v, Anime a) {
 		super();
 		this.ventana = v;

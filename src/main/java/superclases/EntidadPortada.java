@@ -1,5 +1,12 @@
 package superclases;
 
+/**
+ * 
+ * superclase que nos proporciona las variables descripciones, fechaEmision, imagenruta con herencia de la clase EntidadConNombre.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 import java.sql.Date;
 
 public class EntidadPortada extends EntidadConNombre{

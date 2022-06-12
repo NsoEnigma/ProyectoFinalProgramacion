@@ -13,11 +13,24 @@ import clases.Anime;
 import interfaces.Ventana;
 import utils.UtilsBD;
 
+/**
+ * Clase main. Recoge los argumentos del programa y nos crea un fichero de registros para los usuarios. Inicializa la ventana
+ * @author Alejandro Asencio Montes
+ */
+
 public class Main {
+	
+	/**
+	 * Main
+	 * @param args Argumentos pasados a nuestro programa.
+	 * nombreUsuario nombre de usuario de la pantalla login.
+	 * contraseniaUsuario contraseña de usuario de la pantalla login.
+	 */
+	
 	public static void main(String[] args) {
 		
-		String nombreUsuario = ""; // Nombre Usuario
-        String contraseniaUsuario = ""; // Contraseña
+		String nombreUsuario = ""; 
+        String contraseniaUsuario = ""; 
 
         for (byte i = 0; i < args.length; i++) {
             if (args[i].equals("-nombreUsuario")) {

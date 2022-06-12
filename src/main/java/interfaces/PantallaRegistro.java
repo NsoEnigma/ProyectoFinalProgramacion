@@ -36,6 +36,13 @@ import interfaces.Ventana;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+/**
+ * 
+ * Pantalla en la que el individuo registrara un usuario para seguidamente poder inciar sesion..
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class PantallaRegistro extends JPanel {
 	private Ventana ventana;
 	private JTextField campoEmail;
@@ -43,6 +50,11 @@ public class PantallaRegistro extends JPanel {
 	private JTextField campoFechaNacimiento;
 	private JPasswordField campoContraseña;
 
+	/**
+	 * PantallaRegistro es la pantalla mostrada con los distintos valores para introducir en el nuevo usuario.
+	 * @param v Con este objeto ventana nuestra pantalla tendra los valores por defecto de la clase Ventana.
+	 */
+	
 	public PantallaRegistro(Ventana v) {
 		setBackground(Color.DARK_GRAY);
 		this.ventana = v;

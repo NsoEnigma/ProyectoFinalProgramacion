@@ -8,6 +8,11 @@ import java.sql.Statement;
 import superclases.EntidadPortada;
 import utils.UtilsBD;
 
+/**
+ * Clase donde estan todos los constructores y datos relacionados con los capitulos
+ * @author Alejandro Asencio Montes
+ *
+ */
 public class Capitulo extends EntidadPortada{
 	
 	private String link;
@@ -15,7 +20,16 @@ public class Capitulo extends EntidadPortada{
 	private String temporada;
 	protected String text;
 	
-	
+	/**
+	 * Constructor que crea el capitulo
+	 * @param nombre nombre del capitulo
+	 * @param descripcion descripcion del capitulo
+	 * @param link link del capitulo
+	 * @param numeroCapitulo numero del capitulo
+	 * @param temporada temporada del capitulo
+	 * @param fechaEmision fecha de emision del capitulo
+	 * @param imagenRuta ruta de la portada del capitulo
+	 */
 	
 	public Capitulo(String nombre, String descripcion, String link, Byte numeroCapitulo, String temporada,
 			Date fechaEmision, String imagenRuta) {
@@ -26,7 +40,10 @@ public class Capitulo extends EntidadPortada{
 		
 	}
 
-
+	/**
+	 * Constructor que consulta todos los capitulos introducidos en la base de datos
+	 * @param text texto para comprar el anime y que sea distribuido correctamente en su seccion
+	 */
 
 	public Capitulo(String text) {
 

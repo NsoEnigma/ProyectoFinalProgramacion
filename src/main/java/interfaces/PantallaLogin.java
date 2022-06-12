@@ -23,10 +23,24 @@ import java.awt.Insets;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+/**
+ * 
+ * Pantalla en la que el individuo iniciara sesion para ingresar en el contenido del programa.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class PantallaLogin extends JPanel{
 	private Ventana ventana;
 	private JTextField campoUsuario;
 	private JPasswordField campoContraseña;
+	
+	/**
+	 * PantallaLogin es el constructor utilizado para crear nuestra pantalla login donde el usuario iniciara sesion.
+	 * @param v Con este objeto ventana nuestra pantalla tendra los valores por defecto de la clase Ventana.
+	 * @param nombreUsuario Nombre del usuario recibido por argumentos.
+	 * @param contraseniaUsuario Contraseña del usuario recibido por argumentos.
+	 */
 	
 	public PantallaLogin(Ventana v,String nombreUsuario, String contraseniaUsuario) {
 		setBackground(Color.DARK_GRAY);

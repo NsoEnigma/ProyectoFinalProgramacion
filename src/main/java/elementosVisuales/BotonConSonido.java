@@ -1,5 +1,13 @@
 package elementosVisuales;
 
+/**
+ * 
+ * Elemento visual que contiene un boton que emite un sonido al ser clikeado, este boton se puede asignar a todos los 
+ * botones que creemos para ahorrar codigo.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -22,9 +30,10 @@ public class BotonConSonido extends JButton {
     private AudioInputStream audioInputStream;
     private String texto;
 
-    /**
-     * Constructor de clase
-     */
+	/**
+	 * Constructor que sirve para crear el BotonNegro.
+	 * @param m Texto asignado.
+	 */
     public BotonConSonido(String texto) {        
        super(texto);
        

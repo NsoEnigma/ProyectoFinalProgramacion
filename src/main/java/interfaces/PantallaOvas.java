@@ -24,11 +24,24 @@ import elementosVisuales.BotonConSonido;
 import elementosVisuales.ElementoListaCapitulos;
 import elementosVisuales.ElementoListaOvas;
 
+/**
+ * 
+ * Pantalla en la que se mostraran las ovas de cada anime distribuidas en secciones.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class PantallaOvas extends JPanel{
 	
 	private Ventana ventana;
 	private Temporada temporada;
 	private Ova ova;
+	
+	/**
+	 * PantallaOvas va generando un apartado de cada ova con sus distintas propiedades sacadas de la base de datos para mostrar en un 
+	 * ArrayList<Ova> cada una de las distintas ovas de los animes.
+	 * @param v Con este objeto ventana nuestra pantalla tendra los valores por defecto de la clase Ventana.
+	 */
 	
 	public PantallaOvas(Ventana v) {
 		this.ventana=v;

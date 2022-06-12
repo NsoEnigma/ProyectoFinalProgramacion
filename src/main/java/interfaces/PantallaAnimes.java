@@ -25,9 +25,22 @@ import elementosVisuales.ElementoListaAnimes;
 
 import javax.swing.JButton;
 
+/**
+ * 
+ * Pantalla en la que se mostraran los distintos animes distribuidos en secciones.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class PantallaAnimes extends JPanel{
 	private Ventana ventana;
 	private Anime anime;
+	
+	/**
+	 * PantallaAnimes va generando un apartado de cada anime con sus distintas propiedades sacadas de la base de datos para mostrar en un 
+	 * ArrayList<Anime> cada uno de los distintos animes.
+	 * @param v Con este objeto ventana nuestra pantalla tendra los valores por defecto de la clase Ventana.
+	 */
 	
 	public PantallaAnimes(Ventana v) {
 		ventana=v;

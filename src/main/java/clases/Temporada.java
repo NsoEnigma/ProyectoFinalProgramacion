@@ -11,13 +11,27 @@ import superclases.EntidadConNombre;
 import superclases.EntidadPortada;
 import utils.UtilsBD;
 
+/**
+ * Clase que contiene todo lo relacionado con las temporadas, tanto datos como constructores
+ * @author Alejandro Asencio Montes
+ *
+ */
 public class Temporada extends EntidadPortada {
 
 	private byte numeroTemporadas;
 	private String anime;
 	protected String text;
 	private ArrayList<Capitulo> capitulos;
-
+	
+	/**
+	 * Constructor utilizado pra crear nuestra temporada
+	 * @param nombre nombr de la temporada
+	 * @param descripcion descripcion de la temporada
+	 * @param numeroTemporadas numero de temporadas disponibles
+	 * @param fechaEmision fecha de emision de la temporada
+	 * @param anime anime al que pertenece la temporada
+	 * @param imagenRuta ruta de la portada de la temporada
+	 */
 
 	public Temporada(String nombre, String descripcion, byte numeroTemporadas, Date fechaEmision, String anime, String imagenRuta) {
 		super(nombre, descripcion, fechaEmision, imagenRuta);
@@ -26,6 +40,10 @@ public class Temporada extends EntidadPortada {
 
 	}
 
+		/**
+		 * Constructor utilizado para consultar todas las temporadas de los aniems de la base de datos
+		 * @param text texto para que se muestre cada temporada en su correspondiente anime
+		 */
 	public Temporada(String text) {
 
 		Statement smt = UtilsBD.conectarBD();
@@ -51,6 +69,11 @@ public class Temporada extends EntidadPortada {
 		UtilsBD.desconectarBD();
 	}
 	
+	/**
+	 * Constructor que consulta todos los capitulos de la base de datos
+	 * @param text texto para que se muestre cada capitulo en su correspondiente temporada
+	 * @return ArrayList con todo los capitulos de contenido
+	 */
 	public static ArrayList<Capitulo> getCapitulos(String text) {
 		Statement smt = UtilsBD.conectarBD();
         // Inicializamos un ArrayList para devolver.
@@ -85,6 +108,11 @@ public class Temporada extends EntidadPortada {
         return capitulos;
 	}
 	
+	/**
+	 * Constructor que consulta las ovas de la base de datos
+	 * @param text texto para que se muestre cada ova en su correspondiente temporada
+	 * @return
+	 */
 	public static ArrayList<Ova> getOvas(String text) {
 		Statement smt = UtilsBD.conectarBD();
         // Inicializamos un ArrayList para devolver.

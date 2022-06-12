@@ -20,6 +20,11 @@ import superclases.EntidadConNombre;
 import superclases.EntidadPortada;
 import utils.UtilsBD;
 
+/**
+ * Clase donde estran las condiciones y constructores para lo relavionado con los animes
+ * @author Alejandro Asencio Montes
+ *
+ */
 public class Anime extends EntidadPortada{
     
     private String nombre;
@@ -31,7 +36,15 @@ public class Anime extends EntidadPortada{
 	
 	
 	
-	
+	/**
+	 * Constructor utilizado para crear el anime
+	 * @param nombre nombre del anime
+	 * @param descripcion descripcion del anime
+	 * @param numeroTemporadas numero de temporadas que contiene el anime
+	 * @param anime nombre del grupo de anime
+	 * @param fechaEmision fecha en la que se emitio el anime
+	 * @param imagenRuta ruta de la imagen de portada
+	 */
 	
 	
 	public Anime(String nombre, String descripcion, byte numeroTemporadas, String anime, Date fechaEmision, String imagenRuta) {
@@ -60,7 +73,11 @@ public class Anime extends EntidadPortada{
 	public Anime() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	/**
+	 * Constructor donde se almacenan y recogen todos los animes de la base de datos
+	 * @return ArrayList con todos los animes como contenido
+	 */
 	public static ArrayList<Anime> getTodos() {
 		Statement smt = UtilsBD.conectarBD();
 		// Inicializamos un ArrayList para devolver.
@@ -108,6 +125,11 @@ public class Anime extends EntidadPortada{
 		this.descripcion = descripcion;
 	}
 	
+	/**
+	 * Constructor para denominar cada temporada de cada anime
+	 * @param text grupo del anime al que pertenece
+	 * @return ArrayList con todo el contenido de temporadas en su interior
+	 */
 	public static ArrayList<Temporada> getTemporadas(String text) {
 		Statement smt = UtilsBD.conectarBD();
         // Inicializamos un ArrayList para devolver.

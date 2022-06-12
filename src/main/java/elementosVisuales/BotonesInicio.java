@@ -20,13 +20,26 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.border.Border;
 
+/**
+ * 
+ * Elemento visual que contiene un boton con estilo personalizado, este boton se puede asignar a todos los 
+ * botones que creemos para ahorrar codigo.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class BotonesInicio extends JButton {
 
 	Border blackline = BorderFactory.createLineBorder(Color.black);
 	private final File archivowav;
 	private Clip clip;
 	private AudioInputStream audioInputStream;
-
+	
+	/**
+	 * Constructor que sirve para crear el BotonNegro.
+	 * @param m Texto asignado.
+	 */
+	
 	public BotonesInicio(String m) {
 		super(m);
 		estiloPorDefecto();
@@ -58,7 +71,11 @@ public class BotonesInicio extends JButton {
 
 		});
 	}
-
+	
+	/**
+	 * Funcion que hara que el BotonNegro tenga su estilo por defecto.
+	 */
+	
 	private void estiloPorDefecto() {
 		this.setBackground(Color.LIGHT_GRAY);
 		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -67,7 +84,11 @@ public class BotonesInicio extends JButton {
 		this.setForeground(Color.RED);
 		setSize(112, 32);
 	}
-
+	
+	/**
+     * Metodo para reproducir un archivo de audio 
+     */
+	
 	private void play() {
 		try {
 			audioInputStream = AudioSystem.getAudioInputStream(archivowav);

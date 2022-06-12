@@ -22,10 +22,23 @@ import clases.Ova;
 import clases.Temporada;
 import interfaces.Ventana;
 
+/**
+ * 
+ * Elemento visual que contiene el estilo de como se mostrar las temporadas con sus datos preestablecidos,
+ * esto se utiliza para ahorrar codigo.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class ElementoListaTemporadas extends JPanel {
 	private Ventana ventana;
 	private Temporada temporada;
-
+	
+	/**
+	 * Constructor que sirve para asignar un estilo personalizado.
+	 * @param m Texto asignado.
+	 */
+	
 	public ElementoListaTemporadas(Ventana v, Temporada t) {
 		super();
 		this.ventana = v;

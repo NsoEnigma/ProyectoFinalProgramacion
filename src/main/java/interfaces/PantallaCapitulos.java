@@ -23,11 +23,24 @@ import elementosVisuales.BotonConSonido;
 import elementosVisuales.ElementoListaCapitulos;
 import elementosVisuales.ElementoListaTemporadas;
 
+/**
+ * 
+ * Pantalla en la que se mostraran los capitulos de cada uno de los animes distribuidas en secciones.
+ * @author Alejandro Asencio Montes.
+ *
+ */
+
 public class PantallaCapitulos extends JPanel{
 	
 	private Ventana ventana;
 	private Temporada temporada;
 	private Capitulo capìtulo;
+	
+	/**
+	 * PantallaCapitulos va generando un apartado de cada capitulo con sus distintas propiedades sacadas de la base de datos para mostrar en un 
+	 * ArrayList<Capitulo> cada una de las distintos capitulos de los animes.
+	 * @param v Con este objeto ventana nuestra pantalla tendra los valores por defecto de la clase Ventana.
+	 */
 	
 	public PantallaCapitulos(Ventana v) {
 		this.ventana=v;
