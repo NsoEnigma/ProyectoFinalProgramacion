@@ -72,6 +72,8 @@ public class Capitulo extends EntidadPortada{
 	}
 	
 	
+	
+	
 	public Capitulo() {
 		// TODO Auto-generated constructor stub
 	}

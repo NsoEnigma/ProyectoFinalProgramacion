@@ -1,6 +1,11 @@
 package elementosVisuales;
 
 import java.awt.Color;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import javax.swing.JOptionPane;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -31,6 +36,7 @@ import interfaces.Ventana;
 public class ElementoListaCapitulos extends JPanel{
 	private Ventana ventana;
 	private Capitulo capitulo;
+	private String link;
 	
 	/**
 	 * Constructor que sirve para asignar un estilo personalizado.
@@ -97,12 +103,33 @@ public class ElementoListaCapitulos extends JPanel{
 		gbc_labelNumeroTemporadas.gridy = 1;
 		add(labelNumeroTemporadas, gbc_labelNumeroTemporadas);
 		
-		JButton verCapitulo = new JButton("New button");
+		link = this.capitulo.getLink();
+		
+		JButton verCapitulo = new BotonConSonido("Ver Capitulo");
+		verCapitulo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					Desktop.getDesktop().browse(new URI(link));
+				} catch (Exception ex) {
+					
+					JOptionPane.showMessageDialog(ventana,
+							"Error, no se puede acceder al capitulo",
+							"Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
+				
+				
+			}
+		});
 		GridBagConstraints gbc_verCapitulo = new GridBagConstraints();
+		gbc_verCapitulo.anchor = GridBagConstraints.WEST;
 		gbc_verCapitulo.insets = new Insets(0, 0, 0, 5);
 		gbc_verCapitulo.gridx = 1;
 		gbc_verCapitulo.gridy = 2;
 		add(verCapitulo, gbc_verCapitulo);
+		
+		
 		
 		
 		
