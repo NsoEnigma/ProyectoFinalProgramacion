@@ -17,22 +17,25 @@ import clases.Temporada;
 import clases.Usuario;
 
 public class Ventana extends JFrame{
-	/** Contiene a la única pantalla activa en cada momento **/
+	/** Contiene a la Ãºnica pantalla activa en cada momento **/
 	private JPanel pantallaActual;
 	protected Usuario usuarioLogado;
 	public Temporada temporadaActual;
 	public Capitulo capituloActual;
 	public Ova ovaActual;
 	private static final long serialVersionUID = 1L;
+	public HashMap<String,JPanel> pantallas;
+	private String nombreUsuario;
+	private String contraseniaUsuario;
 	
-	public Ventana() {
+	public Ventana(String nombreUsuario, String contraseniaUsuario) {
+		this.nombreUsuario=nombreUsuario;
+		this.contraseniaUsuario=contraseniaUsuario;
 		temporadaActual=new Temporada("Konosuba");
 		this.setSize(800,500);
 		this.setLocationRelativeTo(null); //Te pone la ventana en el centro de la pantalla
 		this.setIconImage(new ImageIcon("./imagenes/Akatsuki-Logo.png").getImage());
 		this.setTitle("AnimeFlvHacendado");
-		//this.setAlwaysOnTop(true);
-		//this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		//this.setUndecorated(true);
@@ -50,7 +53,7 @@ public class Ventana extends JFrame{
 		this.pantallaActual=null;
 		switch(nombrePantalla) {
 			case "login":
-				this.pantallaActual=new PantallaLogin(this);
+			this.pantallaActual=new PantallaLogin(this,nombreUsuario,contraseniaUsuario);
 			break;
 			case "registro":
 				this.pantallaActual=new PantallaRegistro(this);

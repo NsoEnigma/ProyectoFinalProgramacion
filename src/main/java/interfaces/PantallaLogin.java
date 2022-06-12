@@ -28,7 +28,7 @@ public class PantallaLogin extends JPanel{
 	private JTextField campoUsuario;
 	private JPasswordField campoContraseña;
 	
-	public PantallaLogin(Ventana v) {
+	public PantallaLogin(Ventana v,String nombreUsuario, String contraseniaUsuario) {
 		setBackground(Color.DARK_GRAY);
 		this.ventana=v;
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -80,7 +80,7 @@ public class PantallaLogin extends JPanel{
 		gbc_labelUsuario.gridy = 3;
 		this.add(labelUsuario, gbc_labelUsuario);
 		
-		campoUsuario = new JTextField();
+		campoUsuario = new JTextField(nombreUsuario);
 		GridBagConstraints gbc_campoUsuario = new GridBagConstraints();
 		gbc_campoUsuario.fill = GridBagConstraints.BOTH;
 		gbc_campoUsuario.insets = new Insets(0, 0, 5, 5);
@@ -133,7 +133,7 @@ public class PantallaLogin extends JPanel{
 			}
 		});
 		
-		campoContraseña = new JPasswordField();
+		campoContraseña = new JPasswordField(contraseniaUsuario);
 		campoContraseña.setEchoChar('*');
 		GridBagConstraints gbc_campoContraseña = new GridBagConstraints();
 		gbc_campoContraseña.fill = GridBagConstraints.BOTH;

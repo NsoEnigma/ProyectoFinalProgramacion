@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -247,6 +249,18 @@ public class PantallaRegistro extends JPanel {
 					if(genero!=null) {
 						new Usuario(nombre, email, contraseña, (short) fechaNacimiento.getYear(), fechaNacimiento,
 								LocalDateTime.now(), LocalTime.now());
+						
+						FileWriter usuarioResgistro;
+						try {
+							usuarioResgistro = new FileWriter("./usuariosRegistro.txt", true);
+							usuarioResgistro.write("Nombre: " + nombre + ", \tEmail: " + email + "\tFecha de Nacimiento: " + fechaNacimiento + ".\n");		
+							usuarioResgistro.flush();
+							usuarioResgistro.close();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
 						
 						JOptionPane.showMessageDialog(ventana,
 								"Registro completado con éxito",
