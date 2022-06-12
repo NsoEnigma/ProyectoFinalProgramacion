@@ -9,6 +9,8 @@ import clases.Usuario;
 import exceptions.ContraseñaIncorrectaException;
 import exceptions.UsuarioNoExisteException;
 import interfaces.Ventana;
+import utils.UtilsBD;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,7 +26,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ElementoListaAnimes extends JPanel{
 
@@ -37,47 +41,21 @@ public class ElementoListaAnimes extends JPanel{
 		setBorder(new LineBorder(new Color(218, 165, 32), 3, true));
 		this.setMaximumSize(new Dimension(80000,137));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{50, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{50, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel fotoUsuario = new JLabel("");
 		
-		if (this.anime.getNombre().contains("Naruto")) {
-			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\naruto.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.anime.getNombre().contains("Spy x Family")) {
-			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\2-scaled.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.anime.getNombre().contains("Tokyo Ghoul")) {
-			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\tkg.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.anime.getNombre().contains("Konosuba")) {
-			fotoUsuario.setIcon(new ImageIcon("./imagenes/konosuba.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}
+		fotoUsuario.setIcon(new ImageIcon(this.anime.getImagenRuta()));
+		GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
+		gbc_fotoUsuario.gridheight = 3;
+		gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
+		gbc_fotoUsuario.gridx = 0;
+		gbc_fotoUsuario.gridy = 0;
+		add(fotoUsuario, gbc_fotoUsuario);
 		
 		
 		final JLabel labelNombre = new JLabel(this.anime.getNombre());
@@ -100,6 +78,7 @@ public class ElementoListaAnimes extends JPanel{
 		
 		JLabel labelNumeroTemporadas = new JLabel(""+this.anime.getNumeroTemporadas()+"Temporadas");
 		GridBagConstraints gbc_labelNumeroTemporadas = new GridBagConstraints();
+		gbc_labelNumeroTemporadas.gridwidth = 2;
 		gbc_labelNumeroTemporadas.anchor = GridBagConstraints.WEST;
 		gbc_labelNumeroTemporadas.insets = new Insets(0, 0, 5, 5);
 		gbc_labelNumeroTemporadas.gridx = 3;
@@ -141,12 +120,12 @@ public class ElementoListaAnimes extends JPanel{
 			}
 		});
 		GridBagConstraints gbc_verOva = new GridBagConstraints();
-		gbc_verOva.gridwidth = 2;
 		gbc_verOva.anchor = GridBagConstraints.WEST;
 		gbc_verOva.insets = new Insets(0, 0, 0, 5);
 		gbc_verOva.gridx = 2;
 		gbc_verOva.gridy = 2;
 		add(verOva, gbc_verOva);
+
 		
 		
 		

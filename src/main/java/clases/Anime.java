@@ -33,14 +33,16 @@ public class Anime extends EntidadPortada{
 	
 	
 	
-	public Anime(String nombre, String descripcion, byte numeroTemporadas, String anime, Date fechaEmision) {
-		super(nombre,descripcion,fechaEmision);
+	
+	public Anime(String nombre, String descripcion, byte numeroTemporadas, String anime, Date fechaEmision, String imagenRuta) {
+		super(nombre,descripcion,fechaEmision, imagenRuta);
 		PreparedStatement ps = null;
 		FileInputStream fis = null;
 		
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.numeroTemporadas = numeroTemporadas;
+		
 		
 		
 		
@@ -75,6 +77,7 @@ public class Anime extends EntidadPortada{
 				actual.setFechaEmision(cursor.getDate("fechaEstreno"));
 				actual.descripcion = cursor.getString("descripcion");
 				actual.numeroTemporadas = cursor.getByte("numeroTemporada");
+				actual.setImagenRuta(cursor.getString("imagenRuta"));
 
 
 
@@ -120,6 +123,7 @@ public class Anime extends EntidadPortada{
                 actual.setNumeroTemporadas(cursor.getByte("numeroTemporada"));
                 actual.setFechaEmision(cursor.getDate("fechaEstreno"));
                 actual.setAnime(cursor.getString("anime"));
+                actual.setImagenRuta(cursor.getString("imagenRuta"));
 
 
 

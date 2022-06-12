@@ -15,8 +15,8 @@ public class Ova extends EntidadPortada{
 	
 	
 	
-	public Ova(String nombre, String descripcion, Date fechaEmision, String link, Byte numeroOva, String temporada) {
-		super(nombre, descripcion, fechaEmision);
+	public Ova(String nombre, String descripcion, Date fechaEmision, String link, Byte numeroOva, String temporada, String imagenRuta) {
+		super(nombre, descripcion, fechaEmision, imagenRuta);
 		this.link = link;
 		this.numeroOva = numeroOva;
 		this.temporada = temporada;
@@ -36,6 +36,7 @@ public class Ova extends EntidadPortada{
 				this.setTemporada(cursor.getString("temporada"));
 				this.setDescripcion(cursor.getString("descripcion"));
 				this.setLink(cursor.getString("link"));
+				this.setImagenRuta(cursor.getString("imagenRuta"));
 
 			}
 		} catch (SQLException e) {

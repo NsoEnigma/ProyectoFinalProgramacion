@@ -31,6 +31,7 @@ public class Usuario implements Comparable{
 	private String contraseña;
 	private short añoNacimiento;
 	private LocalDate fechaNacimiento;
+	private ArrayList<Anime> favoritos;
 
 
 	public Usuario(String nombre, String email, String contraseña, short añoNacimiento, LocalDate fN, LocalDateTime mR,
@@ -245,11 +246,6 @@ public class Usuario implements Comparable{
 		UtilsBD.desconectarBD();
 
 	}
-
-
-
-
-
 
 
 	/**

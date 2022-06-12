@@ -73,6 +73,9 @@ public class Ventana extends JFrame{
 			case "ova":
 				this.pantallaActual=new PantallaOvas(this);
 			break;
+			case "elegir":
+				this.pantallaActual=new PantallaElegir(this);
+			break;
 		}
 		this.pantallaActual.setVisible(true);
 		this.setContentPane(pantallaActual);

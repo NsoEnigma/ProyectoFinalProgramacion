@@ -18,8 +18,8 @@ public class Capitulo extends EntidadPortada{
 	
 	
 	public Capitulo(String nombre, String descripcion, String link, Byte numeroCapitulo, String temporada,
-			Date fechaEmision) {
-		super(nombre, descripcion, fechaEmision);
+			Date fechaEmision, String imagenRuta) {
+		super(nombre, descripcion, fechaEmision, imagenRuta);
 		this.link = link;
 		this.numeroCapitulo = numeroCapitulo;
 		this.temporada = temporada;
@@ -42,6 +42,7 @@ public class Capitulo extends EntidadPortada{
 				this.setTemporada(cursor.getString("temporada"));
 				this.setDescripcion(cursor.getString("descripcion"));
 				this.setLink(cursor.getString("link"));
+				this.setImagenRuta(cursor.getString("imagenRuta"));
 
 			}
 		} catch (SQLException e) {

@@ -39,39 +39,13 @@ public class ElementoListaCapitulos extends JPanel{
 		
 		JLabel fotoUsuario = new JLabel("");
 		
-		if (this.capitulo.getNombre().contains("Naruto")) {
-			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\naruto.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.capitulo.getTemporada().contains("Spy x Family")) {
-			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\2-scaled.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.capitulo.getTemporada().contains("Tokyo Ghoul")) {
-			fotoUsuario.setIcon(new ImageIcon(".\\imagenes\\tkg.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}else if(this.capitulo.getTemporada().contains("Konosuba")) {
-			fotoUsuario.setIcon(new ImageIcon("./imagenes/konosuba.jpg"));
-			GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
-			gbc_fotoUsuario.gridheight = 3;
-			gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
-			gbc_fotoUsuario.gridx = 0;
-			gbc_fotoUsuario.gridy = 0;
-			add(fotoUsuario, gbc_fotoUsuario);
-		}
+		fotoUsuario.setIcon(new ImageIcon(this.capitulo.getImagenRuta()));
+		GridBagConstraints gbc_fotoUsuario = new GridBagConstraints();
+		gbc_fotoUsuario.gridheight = 3;
+		gbc_fotoUsuario.insets = new Insets(0, 0, 0, 5);
+		gbc_fotoUsuario.gridx = 0;
+		gbc_fotoUsuario.gridy = 0;
+		add(fotoUsuario, gbc_fotoUsuario);
 		
 		
 		final JLabel labelNombre = new JLabel(this.capitulo.getNombre());

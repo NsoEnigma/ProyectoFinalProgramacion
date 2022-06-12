@@ -19,8 +19,8 @@ public class Temporada extends EntidadPortada {
 	private ArrayList<Capitulo> capitulos;
 
 
-	public Temporada(String nombre, String descripcion, byte numeroTemporadas, Date fechaEmision, String anime) {
-		super(nombre, descripcion, fechaEmision);
+	public Temporada(String nombre, String descripcion, byte numeroTemporadas, Date fechaEmision, String anime, String imagenRuta) {
+		super(nombre, descripcion, fechaEmision, imagenRuta);
 		this.numeroTemporadas = numeroTemporadas;
 		this.anime = anime;
 
@@ -39,6 +39,7 @@ public class Temporada extends EntidadPortada {
 				this.setNombre(cursor.getString("nombre"));
 				this.setAnime(cursor.getString("anime"));
 				this.setDescripcion(cursor.getString("descripcion"));
+				this.setImagenRuta(cursor.getString("imagenRuta"));
 
 			}
 		} catch (SQLException e) {
@@ -65,6 +66,7 @@ public class Temporada extends EntidadPortada {
                 actual.setNombre(cursor.getString("nombre"));
                 actual.setTemporada(cursor.getString("temporada"));
                 actual.setDescripcion(cursor.getString("descripcion"));
+                actual.setImagenRuta(cursor.getString("imagenRuta"));
 
 
 
@@ -98,6 +100,7 @@ public class Temporada extends EntidadPortada {
                 actual.setNombre(cursor.getString("nombre"));
                 actual.setTemporada(cursor.getString("temporada"));
                 actual.setDescripcion(cursor.getString("descripcion"));
+                actual.setImagenRuta(cursor.getString("imagenRuta"));
 
 
 
